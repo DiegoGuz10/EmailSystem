@@ -1,0 +1,22 @@
+
+package main_files;
+import java.awt.*;
+import javax.swing.*;
+
+
+public class EmailSystem {
+	
+	String inputtedUser;
+	
+	public EmailSystem() {
+		
+		IntroFrame subFrame = new IntroFrame("New Email System");
+		subFrame.setVisible(true);
+	}
+	
+	
+	public static void main(String[] args) {
+		EmailSystem mainSystem = new EmailSystem();
+		
+	}
+}

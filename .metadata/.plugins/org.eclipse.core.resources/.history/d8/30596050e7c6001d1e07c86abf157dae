@@ -1,0 +1,28 @@
+
+package main_files;
+import java.awt.*;
+import java.util.ArrayList;
+
+import javax.swing.*;
+
+
+public class EmailSystem {
+	
+	String inputtedUser;
+	
+	public EmailSystem() {
+		
+		String firstReceiver = JOptionPane.showInputDialog("Please Enter the Name of the Receiver:");
+		ArrayList<String> firstReceiverList = new ArrayList<String>();
+		firstReceiverList.add(firstReceiver);
+		
+		IntroFrame subFrame = new IntroFrame("New Email System");
+		subFrame.setVisible(true);
+	}
+	
+	
+	public static void main(String[] args) {
+		EmailSystem mainSystem = new EmailSystem();
+		
+	}
+}

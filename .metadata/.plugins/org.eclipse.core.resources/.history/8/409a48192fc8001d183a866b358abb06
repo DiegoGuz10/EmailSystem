@@ -1,0 +1,94 @@
+
+package main_files;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+
+public class IntroFrame extends JFrame implements ActionListener{
+	
+	JLabel inputLabel = new JLabel("Enter your username:");
+	JButton submitButton = new JButton("Submit");
+	JButton cancelButton = new JButton("Cancel");
+	JTextField inputTextField = new JTextField();
+	String initialUser;
+	static ArrayList<String> usersList = new ArrayList<String>();
+	static ArrayList<MainFrame> mainFrameList = new ArrayList<MainFrame>();
+	MainFrame theMainFrame;
+	
+	
+	public IntroFrame(String title){
+		if(usersList.size() == 0) {
+			usersList.add("Robert Navarro");
+		}
+		inputTextField.setPreferredSize(new Dimension(275, 25));
+		submitButton.addActionListener(this);
+		cancelButton.addActionListener(this);
+		
+		this.setTitle(title);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setLayout(new BorderLayout(10, 10));
+		this.setSize(350,200);
+		this.getContentPane().setBackground(Color.LIGHT_GRAY);	
+		
+		otherPanel topSideBar = new otherPanel();
+		otherPanel leftSideBar = new otherPanel();
+		otherPanel rightSideBar = new otherPanel();
+		otherPanel bottomSideBar = new otherPanel();
+		otherPanel centerSideBar = new otherPanel();
+		
+		bottomSideBar.setLayout(new FlowLayout());
+		topSideBar.setBackground(Color.LIGHT_GRAY);
+		leftSideBar.setBackground(Color.LIGHT_GRAY);
+		rightSideBar.setBackground(Color.LIGHT_GRAY);
+		bottomSideBar.setBackground(Color.LIGHT_GRAY);
+		centerSideBar.setBackground(Color.LIGHT_GRAY);
+		this.add(topSideBar, BorderLayout.NORTH);
+		this.add(centerSideBar, BorderLayout.CENTER);
+		this.add(leftSideBar, BorderLayout.WEST);
+		this.add(rightSideBar, BorderLayout.EAST);
+		this.add(bottomSideBar, BorderLayout.SOUTH);
+		topSideBar.add(inputLabel);
+		centerSideBar.add(inputTextField);
+		bottomSideBar.add(submitButton);
+		bottomSideBar.add(cancelButton);
+		this.setResizable(false);
+	}
+
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == cancelButton) {
+			this.dispose();
+		}
+		else if (e.getSource() == submitButton) {
+			if(inputTextField.getText().length() == 0 || inputTextField.getText().isBlank() == true)
+				;
+			else {
+				initialUser = inputTextField.getText();
+				initialUser = initialUser.strip();
+				this.dispose();
+				usersList.add(initialUser);
+				Collections.sort(usersList);
+				MainFrame theMainFrame = new MainFrame(initialUser, usersList); 
+				theMainFrame.setVisible(true);	
+				mainFrameList.add(theMainFrame);
+				mainFrameList.add(theMainFrame);				
+				
+			}
+		}
+		
+	}
+}
