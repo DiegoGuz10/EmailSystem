@@ -129,7 +129,7 @@ public class MainFrame extends JFrame implements ActionListener, ListSelectionLi
 		contentOfSelectedEmailLabel.setBounds(252, 0, 250, 25);
 		theMainPanel.add(contentOfSelectedEmailLabel);	
 		enterMessageLabel.setBounds(210, 325, 150, 25);
-		//submitButton.setBounds(125, 45, 25, 25);
+		submitButton.setBounds(125, 45, 25, 25);
 		
 		theMainPanel.add(enterMessageLabel);	
 		theMainPanel.add(priorityLabel);
@@ -144,7 +144,6 @@ public class MainFrame extends JFrame implements ActionListener, ListSelectionLi
 		theMainPanel.add(subjectLabel);
 		theMainPanel.add(subjectofMessage);
 		theMainPanel.add(spcontentofMessage);
-		bottomSideBar.setPreferredSize(new Dimension(35, 35));
 		bottomSideBar.add(submitButton);
 		bottomSideBar.add(clearButton);
 		

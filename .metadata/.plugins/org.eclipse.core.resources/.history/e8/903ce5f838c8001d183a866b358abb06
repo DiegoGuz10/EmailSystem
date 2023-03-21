@@ -84,7 +84,6 @@ public class MainFrame extends JFrame implements ActionListener, ListSelectionLi
 		this.setLayout(new BorderLayout(15, 15));
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(650,650);
-		//this.setSize(650,670);
 		this.getContentPane().setBackground(Color.LIGHT_GRAY);	
 		this.add(theHeaderPanel, BorderLayout.NORTH);
 		this.add(theMainPanel, BorderLayout.CENTER);
@@ -129,8 +128,6 @@ public class MainFrame extends JFrame implements ActionListener, ListSelectionLi
 		contentOfSelectedEmailLabel.setBounds(252, 0, 250, 25);
 		theMainPanel.add(contentOfSelectedEmailLabel);	
 		enterMessageLabel.setBounds(210, 325, 150, 25);
-		//submitButton.setBounds(125, 45, 25, 25);
-		
 		theMainPanel.add(enterMessageLabel);	
 		theMainPanel.add(priorityLabel);
 		theMainPanel.add(lowCheckBox);
@@ -144,7 +141,6 @@ public class MainFrame extends JFrame implements ActionListener, ListSelectionLi
 		theMainPanel.add(subjectLabel);
 		theMainPanel.add(subjectofMessage);
 		theMainPanel.add(spcontentofMessage);
-		bottomSideBar.setPreferredSize(new Dimension(35, 35));
 		bottomSideBar.add(submitButton);
 		bottomSideBar.add(clearButton);
 		
