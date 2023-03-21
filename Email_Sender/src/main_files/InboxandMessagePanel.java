@@ -1,1 +1,17 @@
 
+package main_files;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+
+import javax.swing.JPanel;
+
+public class InboxandMessagePanel extends JPanel {
+	
+	public InboxandMessagePanel() {
+		this.setPreferredSize(new Dimension(400, 400));
+		this.setBackground(Color.LIGHT_GRAY);
+		this.setLayout(null);
+	}
+}
