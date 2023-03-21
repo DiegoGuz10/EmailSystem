@@ -1,0 +1,15 @@
+
+
+package main_files;
+import java.awt.Color;
+import java.awt.Dimension;
+
+import javax.swing.JPanel;
+
+public class newMessagePanel extends JPanel{
+	
+	public newMessagePanel() {
+		this.setPreferredSize(new Dimension(100, 100));
+		this.setBackground(Color.LIGHT_GRAY);
+	}
+}
