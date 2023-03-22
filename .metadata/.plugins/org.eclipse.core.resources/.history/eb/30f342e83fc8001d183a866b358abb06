@@ -5,9 +5,6 @@ package main_files;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -50,7 +47,7 @@ public class MainFrame extends JFrame implements ActionListener, ListSelectionLi
 	JButton clearButton = new JButton("Clear");
 	JTextArea contentofMessage = new JTextArea();
 	JScrollPane spcontentofMessage = new JScrollPane(contentofMessage);
-	JComboBox<String> dropDownofUsers = new JComboBox <String>();
+	JComboBox dropDownofUsers = new JComboBox();
 	JList<String> messageList = new JList<>();
 	JLabel currentLabel = new JLabel();
 	ArrayList<ArrayList<String>> tempallMessagesContent = new ArrayList<ArrayList<String>>();
@@ -67,8 +64,7 @@ public class MainFrame extends JFrame implements ActionListener, ListSelectionLi
 	otherPanel rightSideBar = new otherPanel();
 	otherPanel bottomSideBar = new otherPanel();
 	
-	
-	public MainFrame(String UserName, ArrayList<String> updatedListofUsers){	
+	public MainFrame(String UserName, ArrayList updatedListofUsers){	
 		
 		this.updateListofUsersswitchUser(UserName, updatedListofUsers);
 		
@@ -78,14 +74,19 @@ public class MainFrame extends JFrame implements ActionListener, ListSelectionLi
 		highCheckBox.setActionCommand("High");
 		medCheckBox.setActionCommand("Medium");
 		lowCheckBox.setActionCommand("Low");
-			
+		
+		
+		
 		submitButton.addActionListener(this);
 		clearButton.addActionListener(this);
+		
+		submitButton.addMouseListener(this);
 		
 		this.setTitle("Email System");
 		this.setLayout(new BorderLayout(15, 15));
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(650,650);
+		//this.setSize(650,670);
 		this.getContentPane().setBackground(Color.LIGHT_GRAY);	
 		this.add(theHeaderPanel, BorderLayout.NORTH);
 		this.add(theMainPanel, BorderLayout.CENTER);
@@ -130,6 +131,7 @@ public class MainFrame extends JFrame implements ActionListener, ListSelectionLi
 		contentOfSelectedEmailLabel.setBounds(252, 0, 250, 25);
 		theMainPanel.add(contentOfSelectedEmailLabel);	
 		enterMessageLabel.setBounds(210, 325, 150, 25);
+		//submitButton.setBounds(125, 45, 25, 25);
 		
 		theMainPanel.add(enterMessageLabel);	
 		theMainPanel.add(priorityLabel);
@@ -240,7 +242,7 @@ public class MainFrame extends JFrame implements ActionListener, ListSelectionLi
 		}
 	}
 	
-	public void updateListofUsersswitchUser(String UserName, ArrayList<String> updatedListofUsers) {
+	public void updateListofUsersswitchUser(String UserName, ArrayList updatedListofUsers) {
 		tempupdatedListofUsers.addAll(updatedListofUsers); 
 	    Set<String> set = new LinkedHashSet<>();
 	    
@@ -264,7 +266,7 @@ public class MainFrame extends JFrame implements ActionListener, ListSelectionLi
 	}
 	
 	
-	public void updateListofUsersaddRecipient(String UserName, ArrayList<String> updatedListofUsers) {
+	public void updateListofUsersaddRecipient(String UserName, ArrayList updatedListofUsers) {
 		tempupdatedListofUsers.addAll(updatedListofUsers); 
 	    Set<String> set = new LinkedHashSet<>();
 	    

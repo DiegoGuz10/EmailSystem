@@ -78,14 +78,28 @@ public class MainFrame extends JFrame implements ActionListener, ListSelectionLi
 		highCheckBox.setActionCommand("High");
 		medCheckBox.setActionCommand("Medium");
 		lowCheckBox.setActionCommand("Low");
-			
+		
+		
+		
 		submitButton.addActionListener(this);
 		clearButton.addActionListener(this);
+		
+		submitButton.addMouseListener( new MouseAdapter() {
+		    public void mouseEntered( MouseEvent e ) {
+		    	System.out.println("lol");
+		    	//submitButton.repaint();
+		    	//submitButton.isOpaque();
+		    	submitButton.setBorderPainted(true);
+		    	submitButton.setBackground(Color.blue);
+		    	//submitButton.repaint();
+		    }
+		} );
 		
 		this.setTitle("Email System");
 		this.setLayout(new BorderLayout(15, 15));
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(650,650);
+		//this.setSize(650,670);
 		this.getContentPane().setBackground(Color.LIGHT_GRAY);	
 		this.add(theHeaderPanel, BorderLayout.NORTH);
 		this.add(theMainPanel, BorderLayout.CENTER);
@@ -130,6 +144,7 @@ public class MainFrame extends JFrame implements ActionListener, ListSelectionLi
 		contentOfSelectedEmailLabel.setBounds(252, 0, 250, 25);
 		theMainPanel.add(contentOfSelectedEmailLabel);	
 		enterMessageLabel.setBounds(210, 325, 150, 25);
+		//submitButton.setBounds(125, 45, 25, 25);
 		
 		theMainPanel.add(enterMessageLabel);	
 		theMainPanel.add(priorityLabel);
