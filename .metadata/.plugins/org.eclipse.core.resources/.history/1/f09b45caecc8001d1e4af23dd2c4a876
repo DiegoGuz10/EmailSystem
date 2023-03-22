@@ -10,17 +10,19 @@ import javax.swing.*;
 public class Main {
 	
 	public Main() {
-		String firstUser = JOptionPane.showInputDialog("Please Enter the Name of the User:");
+		String firstSender = JOptionPane.showInputDialog("Please Enter the Name of the User:");
 		String firstRecipient = JOptionPane.showInputDialog("Please Enter the Name of the Recipient:");
 		ArrayList<String> firstRecipientList = new ArrayList<String>();
 		firstRecipientList.add(firstRecipient);
-		firstRecipientList.add(firstUser);
+		firstRecipientList.add(firstSender);
 		
-		if((firstUser == null) || (firstRecipient == null) || (firstUser.isBlank()) || (firstRecipient.isBlank())) {
+		if((firstSender == null) || (firstRecipient == null) || (firstSender.isBlank()) || (firstRecipient.isBlank())) {
+			//MainFrame theFrame = new MainFrame(firstSender, firstRecipientList);
+			//theFrame.setVisible(true);
 			JOptionPane.showMessageDialog(null, "The Names of the User and Recipient cannot be blank. Please re-run the system again.", "Error Encountered!", JOptionPane.ERROR_MESSAGE);
 		}
 		else {
-			MainFrame theFrame = new MainFrame(firstUser, firstRecipientList);
+			MainFrame theFrame = new MainFrame(firstSender, firstRecipientList);
 			theFrame.setVisible(true);
 		}
 	}
