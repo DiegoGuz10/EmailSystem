@@ -158,14 +158,14 @@ public class MainFrame extends JFrame implements ActionListener, ListSelectionLi
 		}
 		else if (e.getSource() == addRecipientItem) {	
 			String newRecipient = JOptionPane.showInputDialog("Please Enter the Name of the New Recipient:");
-			if (!(newRecipient == null)) {
+			if (!newRecipient.isBlank()) {
 				MainFrame.tempupdatedListofUsers.add(newRecipient);
 				this.updateListofUsersaddRecipient(newRecipient, tempupdatedListofUsers);
 			}
 		}
 		else if (e.getSource() == switchUserItem) {	
 			String newUser = JOptionPane.showInputDialog("Please Enter the Name of User:");
-			if (!(newUser == null)) {
+			if (!newRecipient.isBlank()) {
 				MainFrame.tempupdatedListofUsers.add(newUser);
 				this.updateListofUsersswitchUser(newUser, tempupdatedListofUsers);
 				this.updateListofMessages();
